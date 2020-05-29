@@ -5,7 +5,8 @@ import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
 
 export default function MovieList(props) {
-  if (props.MovieList === null) {
+  let genre = props.genreFromApp 
+  if (props.movieList === null) {
     return <div>loading</div>;
   }
   return (
@@ -14,7 +15,7 @@ export default function MovieList(props) {
       <Container>
           <Row md={3} >
           {props.movieList.map((item) => {
-        return <Col className="mt-3 mb-3"><MovieCard movie={item}  /></Col>;
+        return <Col className="mt-3 mb-3" key={item.id}><MovieCard movie={item}  genreList={genre}/></Col>;
       })}
       </Row>
       </Container>
