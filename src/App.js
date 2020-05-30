@@ -5,8 +5,10 @@ import "./App.css";
 import MovieList from "./MovieList";
 
 
-const apiKey = process.env.REACT_APP_APIKEY;
+let apiKey = process.env.REACT_APP_APIKEY;
+
 export default class App extends Component {
+  
   constructor(props){
     super(props);
     this.state = {
@@ -18,9 +20,10 @@ export default class App extends Component {
     }
     
   }
-
+  
 // Get movie list
   getNowPlayingMovie = async () => {
+    
     let url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
    
     let data = await fetch(url);
@@ -45,7 +48,7 @@ export default class App extends Component {
     let data = await fetch(url);
     let result = await data.json();
     this.setState({
-      genreList: result.genre_ids
+      genreList: result.genres
     })
     this.getNowPlayingMovie()
     console.log("how my genre look like", result)

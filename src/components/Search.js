@@ -4,6 +4,7 @@ export class Search extends Component {
     
     render() {
         let searchContents = ''
+        
         return (
             <div>
                 <Form inline>
