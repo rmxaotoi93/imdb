@@ -40,7 +40,7 @@
 
 .apTitle {
   position: relative;
-  
+  margin-top: 50px;
 }
 
 .movie-title  {
@@ -86,13 +86,14 @@
   bottom: 0;
   left: 0;
   right: 0;
-  width: 260px;
+  width: 300px;
   visibility: hidden;
   opacity: 0;
-  margin-left: 20px;
+ 
+  text-align: center;
   transition: opacity .2s, visibility .2s;
-  color: red;
-  border: 1px solid yellowgreen;
+  
+  
 }
 
 .apTitle:hover .movie-category {
@@ -133,4 +134,27 @@
   padding: 2px 0;
   background-color: #404040;
 }
-
+.itemsCate{
+  margin: 10px 10px;
+  min-height: 10px;
+  font-size: 14px;
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  color: rgb(245, 237, 237);
+}
+body{
+  background-color: rgba(0,0,0,.3);
+}
+.search{
+  float: right;
+}
+.seeMore{
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid yellowgreen;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+}

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 
 import "./App.css";
+import Category from "./components/Category";
 
 export default function MovieCard(props) {
   
@@ -12,9 +13,15 @@ export default function MovieCard(props) {
     return (genre.find(fGenre => (id === fGenre.id)).name)
     
   })
-  console.log(finalGenre)
-  
-  
+  // console.log(finalGenre)
+
+  const btbCate = finalGenre.map( item => {
+    return (<button className="itemsCate">{item}</button>)
+  })
+
+  // finalGenre.forEach(element => {
+  //   Array.p
+  // });
    
   return (
 
@@ -22,7 +29,10 @@ export default function MovieCard(props) {
         <img className="apImg" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`} alt=""/>
         
         <p className="movie-title">{movie.original_title}</p>
-        <button className="movie-category">{finalGenre}</button>
+        
+        <div className="movie-category">
+          {btbCate}
+        </div>
         <p className="movie-description">{movie.overview}</p>
        
     </div>

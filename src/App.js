@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 // import {Form,FormControl,Button} from 'react-bootstrap'
 import MovieList from "./MovieList";
+import Search from './components/Search';
+
 
 
 let apiKey = process.env.REACT_APP_APIKEY;
@@ -15,8 +17,10 @@ export default class App extends Component {
       movieList:[],
       title: "",
       overView:"",
-      keyword:'',
-      genreList:[]
+      searchContents:'',
+      genreList:[],
+      originalList:[],
+      page:1,
     }
     
   }
@@ -24,19 +28,22 @@ export default class App extends Component {
 // Get movie list
   getNowPlayingMovie = async () => {
     
-    let url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
+    let url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=${this.state.page}`;
+
+    
    
     let data = await fetch(url);
     let result = await data.json();
     this.setState({
       movieList: result.results,
+      originalList: result.results,
       title: result.original_title,
       overView: result.overview,
       
       
     })
-      
-    console.log("movies", result);
+    
+    // console.log("movies", result);
     
   };
 
@@ -60,7 +67,18 @@ export default class App extends Component {
   componentDidMount(){
     this.getGenreList()
   }
-
+searchByKeyword = (searchContents)=>{
+  console.log('this function from app', searchContents);
+  if(searchContents === '') { 
+    this.setState({movieList:this.state.originalList})
+    return;
+  }
+  let filterMovie = this.state.movieList.filter(movie => movie.title.toLowerCase().includes(searchContents))
+  this.setState({
+    searchContents:searchContents,
+    movieList: filterMovie
+  })
+}
   // search movie by keyword
 
 //    searchByKeyWord = () =>{
@@ -71,21 +89,28 @@ export default class App extends Component {
 //     //3. call api again
 //     this.getNowPlayingMovie('searchByKeyWord')
 // }
+seeMore = () =>{
+  this.setState({
+    page:this.state.page + 1
+  })
+  console.log('page film',this.state.page++);
+  this.getNowPlayingMovie()
+}
+
   render() {
     if (this.state.movieList === null) {
     return <div>loading</div>;
     }
   
+
   return (
     <div>
        <div>
-       {/* <Form inline>
-      <FormControl  onClick={e => {keyword = e.target.value;}} type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success">Search</Button>
-</Form> */}
+       <Search searchKeywordProps={this.searchByKeyword}/>
       <MovieList movieList={this.state.movieList} genreFromApp={this.state.genreList}/>
-      
-      <button>See More</button>
+      <button onClick={this.seeMore} className="seeMore">See More</button>
+
+     
   </div>
     </div>
   )
