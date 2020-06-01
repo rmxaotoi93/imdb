@@ -4,6 +4,7 @@ import "./App.css";
 // import {Form,FormControl,Button} from 'react-bootstrap'
 import MovieList from "./MovieList";
 import Search from './components/Search';
+import { Carousel } from 'react-bootstrap';
 
 
 
@@ -91,7 +92,7 @@ searchByKeyword = (searchContents)=>{
 // }
 seeMore = () =>{
   this.setState({
-    page:this.state.page + 1
+    page:++this.state.page
   })
   console.log('page film',this.state.page++);
   this.getNowPlayingMovie()
@@ -106,6 +107,7 @@ seeMore = () =>{
   return (
     <div>
        <div>
+         <Carousel/>
        <Search searchKeywordProps={this.searchByKeyword}/>
       <MovieList movieList={this.state.movieList} genreFromApp={this.state.genreList}/>
       <button onClick={this.seeMore} className="seeMore">See More</button>

@@ -15,7 +15,7 @@ export default function MovieList(props) {
       <Container>
           <Row md={3} >
           {props.movieList.map((item) => {
-        return <Col className="mt-3 mb-3" key={item.id}><MovieCard movie={item}  genreList={genre}/></Col>;
+        return <Col className="mt-3 mb-3" key={item.id}><MovieCard key={item.id} movie={item}  genreList={genre}/></Col>;
       })}
       </Row>
       </Container>
