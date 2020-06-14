@@ -12,7 +12,7 @@ export default function MovieCard(props) {
   // console.log('genre',genre)
   let [modalOpen, setModalOpen] = useState(false);
   let [movieId,setMovieId] = useState("");
-
+  console.log(movie)
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -22,6 +22,7 @@ export default function MovieCard(props) {
     const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`;
     let data = await fetch(url);
     let result = await data.json();
+    console.log('phim',result.results[0]);
     
     setMovieId(result.results[0].key)
     console.log('video modal: ',result.results[0].key)
@@ -49,6 +50,7 @@ export default function MovieCard(props) {
     <div className="apTitle">
       <ReactModal isOpen={modalOpen} ariaHideApp={false}>
           <Button
+            style={{float:'right'}}
             varient="outline-danger"
             onClick={() => {
               closeModal();
@@ -56,12 +58,9 @@ export default function MovieCard(props) {
           >
             X
           </Button>
-          <YouTube width={1000} height={500} 
-  video={movieId}
-  autoplay
-/>
+          <YouTube width={1100} height={500} video={movieId} autoplay/>
           
-        </ReactModal>
+      </ReactModal>
         <img className="apImg" src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${movie.poster_path}`} alt=""/>
         
         <p className="movie-title">{movie.original_title}</p>
@@ -71,7 +70,7 @@ export default function MovieCard(props) {
         </div>
         <p className="movie-description">{movie.overview}</p>
        <div className="movie-modal">
-       <button  onClick={()=>{openModal(movie.id)}}>Trailer</button>
+       <Button className="trailer" onClick={()=>{openModal(movie.id)}}>Trailer</Button>
        </div>
     </div>
     

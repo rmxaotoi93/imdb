@@ -4,8 +4,8 @@ import "./App.css";
 // import {Form,FormControl,Button} from 'react-bootstrap'
 import MovieList from "./MovieList";
 import Search from './components/Search';
-import { Carousel } from 'react-bootstrap';
 
+import Sliderr from './components/Slider'
 
 
 let apiKey = process.env.REACT_APP_APIKEY;
@@ -107,12 +107,12 @@ seeMore = () =>{
   return (
     <div>
        <div>
-         <Carousel/>
+       
        <Search searchKeywordProps={this.searchByKeyword}/>
       <MovieList movieList={this.state.movieList} genreFromApp={this.state.genreList}/>
       <button onClick={this.seeMore} className="seeMore">See More</button>
 
-     
+   
   </div>
     </div>
   )
@@ -120,16 +120,3 @@ seeMore = () =>{
   
 }
 
-
-
-// genre_ids: (2) [28,878]
-
-// 1. grab the value from genre ids
-// 2. grab the each value from genreList
-// 3. if value 1 === value 2.id 
-// 3a. else if its no same, just ignore
-// 4. return value2.name 
-
-// genre_ids.map(id => {return (
-//   genreList.find(genre => return(id === genre.id)).name
-// )})
