@@ -107,7 +107,7 @@ seeMore = () =>{
       
      <Caro />
      <div>
-       <h1>Tmdb</h1><Search searchKeywordProps={this.searchByKeyword}/>
+       <Search searchKeywordProps={this.searchByKeyword}/>
       
    
   </div>

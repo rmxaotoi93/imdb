@@ -151,12 +151,18 @@ body{
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid yellowgreen;
+  border: 1px solid rgb(26, 27, 24);
+  border-radius: 20px;
+  background-color: rgb(236, 217, 112);
   display: flex;
+  padding: 5px 10px;
   align-items: center;
-  font-weight: 400;
+  font-weight: 600;
+  
 }
-
+.seeMore:hover{
+  background-color: rgb(231, 206, 65);
+}
 .movie-modal {
   
   text-align: center;
@@ -175,4 +181,8 @@ body{
 .trailer{
   margin-top: 30px;
   margin-right: 40px;
+  
+}
+.btn-outline-success:hover{
+  background-color: rgb(236, 217, 112) !important
 }

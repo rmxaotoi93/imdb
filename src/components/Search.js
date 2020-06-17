@@ -24,7 +24,7 @@ export class Search extends Component {
                 <Form inline onSubmit={(e) =>{this.searchByKeyword(e)}
             } >
       <FormControl onChange={e => this.searchkeyWord(e)} type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success" type="submit">Search</Button>
+      <Button variant="outline-success" type="submit" style={{color:'rgb(56, 49, 6)',border:'1px solid rgb(56, 49, 6)'}}>Search</Button>
 </Form>
             </div>
         )
