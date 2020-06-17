@@ -64,17 +64,20 @@
 .movie-description {
   position: absolute;
   visibility: hidden;
+  width: 280px;
   opacity: 0;
   margin-top: -250px;
   color: white;
+  margin-left: 10px;
+  text-align: center;
   overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 5;
     
     -webkit-box-orient: vertical;
-   text-align: center;
-   margin-left: 15px;
+
+  
 }
 .movie-category {
 
@@ -139,8 +142,9 @@ body{
   background-color: rgba(0,0,0,.3);
 }
 .search{
-  float: right;
-  
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
 }
 .seeMore{
  
@@ -153,11 +157,11 @@ body{
   font-weight: 400;
 }
 
-.movie-modal{
+.movie-modal {
   
   text-align: center;
-  margin: 0 auto;
   
+  margin: 0 auto;
   
 }
 .html5-video-player{
@@ -170,4 +174,5 @@ body{
 }
 .trailer{
   margin-top: 30px;
+  margin-right: 40px;
 }

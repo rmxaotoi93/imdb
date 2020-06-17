@@ -4,9 +4,7 @@ import "./App.css";
 // import {Form,FormControl,Button} from 'react-bootstrap'
 import MovieList from "./MovieList";
 import Search from './components/Search';
-
-import Sliderr from './components/Slider'
-
+import Caro from './components/Caro';
 
 let apiKey = process.env.REACT_APP_APIKEY;
 
@@ -106,14 +104,16 @@ seeMore = () =>{
 
   return (
     <div>
-       <div>
-       
-       <Search searchKeywordProps={this.searchByKeyword}/>
-      <MovieList movieList={this.state.movieList} genreFromApp={this.state.genreList}/>
-      <button onClick={this.seeMore} className="seeMore">See More</button>
-
+      
+     <Caro />
+     <div>
+       <h1>Tmdb</h1><Search searchKeywordProps={this.searchByKeyword}/>
+      
    
   </div>
+  <MovieList movieList={this.state.movieList} genreFromApp={this.state.genreList}/>
+      <button onClick={this.seeMore} className="seeMore">See More</button>
+
     </div>
   )
 }

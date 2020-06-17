@@ -9,6 +9,8 @@
     "@testing-library/user-event": "^7.2.1",
     "@u-wave/react-youtube": "^0.7.1",
     "bootstrap": "^4.5.0",
+    "nuka-carousel": "^4.7.0",
+    "pure-react-carousel": "^1.27.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
