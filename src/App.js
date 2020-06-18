@@ -105,7 +105,7 @@ seeMore = () =>{
   return (
     <div>
       
-     <Caro />
+     {/* <Caro /> */}
      <div>
        <Search searchKeywordProps={this.searchByKeyword}/>
       
